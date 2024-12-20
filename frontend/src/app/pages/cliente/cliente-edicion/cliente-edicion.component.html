@@ -1,0 +1,45 @@
+<form class="example-container" [formGroup]="form" #frmCliente="ngForm" (ngSubmit)="operar()">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width">            
+        <input matInput placeholder="nombreCliente" minlength="3" required formControlName="nombreCliente">  
+        <small *ngIf="f['nombreCliente'].errors?.['required'] && f['nombreCliente'].touched" class="invalido">Nombre es requerido</small>           
+        <small *ngIf="f['nombreCliente'].errors?.['minlength'] && f['nombreCliente'].touched" class="invalido">Nombre debe ser mayor a 3 caracteres</small>           
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">        
+        <input matInput placeholder="apellidoCliente" required formControlName="apellidoCliente">           
+        <small *ngIf="f['apellidoCliente'].errors?.['required'] && f['apellidoCliente'].touched" class="invalido">Nombre es requerido</small>           
+        <small *ngIf="f['apellidoCliente'].errors?.['minlength'] && f['apellidoCliente'].touched" class="invalido">Nombre debe ser mayor a 3 caracteres</small>           
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="correoCliente" required formControlName="correoCliente" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="direccionCliente" required formControlName="direccionCliente" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="dniCliente" required formControlName="dniCliente" type="number">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="telefonoCliente" required type="telefonoCliente" formControlName="telefonoCliente">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmCliente.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink='/pages/cliente' type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>

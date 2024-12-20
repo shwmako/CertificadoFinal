@@ -1,0 +1,94 @@
+/* General form container */
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  width: 100%; 
+  max-width: 600px;
+}
+
+/* Style for mat-form-field to make it more spacious and modern */
+mat-form-field {
+  margin-bottom: 16px;
+}
+
+/* Input and Textarea styling */
+mat-form-field .mat-form-field-infix {
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Larger input fields (for better space) */
+mat-form-field input, mat-form-field textarea {
+  font-size: 16px;
+  padding: 12px;
+}
+
+/* Mat-select styling */
+mat-form-field mat-select {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Button container for better spacing */
+button {
+  margin: 10px 0;
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Primary button styling */
+button[color="primary"] {
+  background-color: #4CAF50; /* Green color */
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button[color="primary"]:hover {
+  background-color: #45a049;
+}
+
+/* Accent button styling */
+button[color="accent"] {
+  background-color: #f44336; /* Red color */
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button[color="accent"]:hover {
+  background-color: #e53935;
+}
+
+/* Icons inside the buttons */
+button mat-icon {
+  margin-right: 8px;
+}
+
+/* Disabled button state */
+button:disabled {
+  background-color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+/* Aesthetic spacing between form elements */
+mat-form-field, button {
+  margin-top: 10px;
+}
+
+/* Focus state for input fields */
+mat-form-field input:focus, mat-form-field textarea:focus, mat-select:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}

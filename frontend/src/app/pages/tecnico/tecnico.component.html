@@ -1,0 +1,68 @@
+<mat-toolbar>Tecnicos</mat-toolbar>
+
+<div class="example-container mat-elevation-z8">
+
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar Tecnico">
+      </mat-form-field>
+    </div>
+  
+    <mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="idTecnico">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> idTecnico </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.idTecnico}} </mat-cell>
+      </ng-container>
+  
+  
+      <ng-container matColumnDef="nombreTecnico">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Tecnico </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nombreTecnico}} </mat-cell>
+      </ng-container>
+  
+  
+      <ng-container matColumnDef="apellidoTecnico">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido Tecnico </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.apellidoTecnico}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="correoTecnico">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Correo Tecnico </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.correoTecnico}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="dniTecnico">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Dni Tecnico </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.dniTecnico}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="direccionTecnico">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Direccion Tecnico </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.direccionTecnico}} </mat-cell>
+      </ng-container>
+
+      
+
+  
+      <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+        <mat-cell *matCellDef="let element">        
+          <button mat-button color="primary" (click)="abrirDialogo(element)" ><mat-icon>ballot</mat-icon></button>
+          <button mat-button color="accent" (click)="eliminar(element)"><mat-icon>delete</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  
+  <br>
+  
+  <button mat-fab color="accent" (click)="abrirDialogo()" style="float: right; margin-right: 20px">
+    <mat-icon>create</mat-icon>
+  </button>

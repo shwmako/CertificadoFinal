@@ -1,0 +1,28 @@
+<div>
+    <mat-form-field>
+        <input matInput placeholder="nombreTecnico" [(ngModel)]="tecnico.nombreTecnico">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="apellidoTecnico" [(ngModel)]="tecnico.apellidoTecnico">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="correoTecnico" [(ngModel)]="tecnico.correoTecnico">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="fotoTecnico" [(ngModel)]="tecnico.fotoTecnico">
+    </mat-form-field>
+    <img mat-card-image [src]="tecnico.fotoTecnico" alt="" width="50%" height="50%" *ngIf="tecnico.fotoTecnico != null">
+
+    <mat-form-field>
+        <input matInput placeholder="dniTecnico" [(ngModel)]="tecnico.dniTecnico" max="15" maxlength="15" type="number">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="direccionTecnico" [(ngModel)]="tecnico.direccionTecnico">
+    </mat-form-field>
+
+</div>
+<button mat-raised-button color="primary" (click)="operar()">Aceptar</button>
+<button mat-raised-button color="accent" (click)="cerrar()">Cancelar</button>

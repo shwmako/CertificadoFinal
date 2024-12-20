@@ -1,0 +1,69 @@
+<mat-toolbar>Clientes</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+<div class="example-header">
+    <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar Clientes">
+    </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="idCliente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID Cliente</th>
+        <td mat-cell *matCellDef="let element"> {{element.idCliente}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombreCliente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombres Cliente </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombreCliente}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellidoCliente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos Cliente </th>
+        <td mat-cell *matCellDef="let element"> {{element.apellidoCliente}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="correoCliente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Correos </th>
+        <td mat-cell *matCellDef="let element"> {{element.correoCliente}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="direccionCliente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Direccion </th>
+        <td mat-cell *matCellDef="let element"> {{element.direccionCliente}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dniCliente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Dni </th>
+        <td mat-cell *matCellDef="let element"> {{element.dniCliente}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="telefonoCliente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefono </th>
+        <td mat-cell *matCellDef="let element"> {{element.telefonoCliente}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-button color="primary" [routerLink]="['edicion', element.idCliente]">
+                <mat-icon>ballot</mat-icon>
+            </button>
+            <button mat-button color="primary" (click)="eliminar(element.idCliente)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" [length]="cantidad" (page)="mostrarMas($event)"></mat-paginator>
+
+<button mat-fab color="accent" style="float: right" routerLink="/pages/cliente/nuevo" >
+    <mat-icon>add</mat-icon>
+</button>

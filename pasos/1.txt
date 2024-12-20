@@ -1,0 +1,33 @@
+//part 1
+
+INSERT INTO Tecnico (nombre, apellido, foto, dni, direccion, correo) 
+VALUES 
+('Juan', 'Pérez', 'foto1.jpg', '12345678', 'Calle Falsa 123', 'juan.perez@example.com'),
+('Ana', 'Gómez', 'foto2.jpg', '87654321', 'Avenida Siempre Viva 456', 'ana.gomez@example.com'),
+('Luis', 'Ramírez', 'foto3.jpg', '23456789', 'Jirón de la Unión 789', 'luis.ramirez@example.com'),
+('María', 'Lopez', 'foto4.jpg', '34567890', 'Av. Los Olivos 123', 'maria.lopez@example.com'),
+('Carlos', 'Sánchez', 'foto5.jpg', '45678901', 'Pasaje San Martín 987', 'carlos.sanchez@example.com');
+
+INSERT INTO Cliente (nombre, apellido, correo, direccion, dni, telefono)
+VALUES 
+('Carlos', 'Pérez', 'carlos.perez@example.com', 'Avenida Principal 123', '12345678', '987654321'),
+('María', 'Gómez', 'maria.gomez@example.com', 'Calle Secundaria 456', '87654321', '912345678'),
+('Luis', 'Ramírez', 'luis.ramirez@example.com', 'Pasaje Los Olivos 789', '23456789', '956789123'),
+('Ana', 'Lopez', 'ana.lopez@example.com', 'Jirón Unión 321', '34567890', '934567890'),
+('Jorge', 'Sánchez', 'jorge.sanchez@example.com', 'Calle Las Flores 654', '45678901', '978123456');
+
+INSERT INTO Solicitud (nombre, apellido, correo, telefono, tipo_servicio, descripcion, estado)
+VALUES 
+('Carlos', 'Pérez', 'carlos.perez@example.com', '987654321', 'Mantenimiento', 'Revisión completa de equipos y limpieza general.', 'Pendiente'),
+('María', 'Gómez', 'maria.gomez@example.com', '912345678', 'Instalación', 'Instalación de un sistema de cámaras de seguridad.', 'Pendiente'),
+('Luis', 'Ramírez', 'luis.ramirez@example.com', '956789123', 'Reparación', 'Reparación de problemas eléctricos en oficina.', 'Pendiente'),
+('Ana', 'Lopez', 'ana.lopez@example.com', '934567890', 'Consultoría', 'Asesoramiento sobre infraestructura tecnológica.', 'Pendiente'),
+('Jorge', 'Sánchez', 'jorge.sanchez@example.com', '978123456', 'Desarrollo', 'Desarrollo de un sistema web para gestión de clientes.', 'Pendiente');
+
+INSERT INTO Tipo_servicio (nombre, descripcion)
+VALUES 
+('Mantenimiento', 'Servicio de mantenimiento preventivo y correctivo para equipos y sistemas.'),
+('Instalación', 'Instalación de nuevos sistemas eléctricos, hidráulicos, o tecnológicos.'),
+('Reparación', 'Reparación de fallos en equipos o sistemas existentes.'),
+('Consultoría', 'Asesoramiento técnico y estratégico para proyectos personalizados.'),
+('Desarrollo', 'Creación y personalización de soluciones tecnológicas, como aplicaciones o sistemas.');

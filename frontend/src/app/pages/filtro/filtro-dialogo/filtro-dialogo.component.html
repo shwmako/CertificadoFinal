@@ -1,0 +1,26 @@
+<h2 class="mat-h2">Cliente : {{cita.cliente.nombreCliente}} | Fecha de Consulta: {{cita.fecha | date:'dd-MM-yyyy'}}
+</h2>
+
+<mat-card class="example-card" *ngFor="let d of cita.detalleCita">
+    <mat-card-header>
+        <mat-card-title>Detalles Ubicacion y Solucion </mat-card-title>
+        <mat-card-subtitle>{{d.analisis}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{d.solucion}}
+        </p>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card" *ngFor="let ce of tipoServicio">
+    <mat-card-header>
+        <mat-card-title>Tipo de Servicio</mat-card-title>
+        <mat-card-subtitle>{{ce.tipoServicio.nombreTipoServicio}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{ce.tipoServicio.descripcionTipoServicio}}
+        </p>
+    </mat-card-content>
+</mat-card>

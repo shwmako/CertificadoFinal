@@ -1,0 +1,16 @@
+-- acces token
+CREATE TABLE oauth_access_token (
+  token_id VARCHAR(256) PRIMARY KEY, -- Define una clave primaria
+  token BLOB,
+  authentication_id VARCHAR(256),
+  user_name VARCHAR(256),
+  client_id VARCHAR(256),
+  authentication BLOB,
+  refresh_token VARCHAR(256)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE oauth_refresh_token (
+  token_id VARCHAR(256), -- Identificador del token
+  token BLOB,           -- Datos binarios (equivalente a bytea)
+  authentication BLOB   -- Datos binarios (equivalente a bytea)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

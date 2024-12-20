@@ -1,0 +1,80 @@
+<mat-toolbar>Solicitudes</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+<div [hidden]="verificarHijos()">
+    <div class="example-container mat-elevation-z8">
+
+        <div class="example-header">
+            <mat-form-field>
+                <input matInput (keyup)="filtrar($event)" placeholder="Buscar Solicitudes">
+            </mat-form-field>
+        </div>
+
+        <mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="idSolicitud">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Id Solicitud </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.idSolicitud}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="nombreSolicitud">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre Solicitud </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.nombreSolicitud}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="apellidoSolicitud">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido Solicitud </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.apellidoSolicitud}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="correoSolicitud">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Correo Solicitud </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.correoSolicitud}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="telefonoSolicitud">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Telefono Solicitud </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.telefonoSolicitud}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="tipoServicioSolicitud">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo Solicitud </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.tipoServicioSolicitud}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="descripcionSolicitud">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion Solicitud </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.descripcionSolicitud}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="estadoSolicitud">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Estado Solicitud </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.estadoSolicitud}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="acciones">
+                <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-button color="primary" [routerLink]="['edicion', row.idSolicitud]">
+                        <mat-icon>ballot</mat-icon>
+                    </button>
+                    <button mat-button color="accent" (click)="eliminar(row)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+
+    <button mat-fab color="accent" style="float: right; margin-right: 20px" routerLink='/pages/solicitud/nuevo'>
+        <mat-icon>create</mat-icon>
+    </button>
+
+</div>

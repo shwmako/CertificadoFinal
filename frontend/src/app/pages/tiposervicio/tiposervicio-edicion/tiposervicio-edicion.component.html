@@ -1,0 +1,25 @@
+<form class="example-container" [formGroup]="form" (ngSubmit)="operar()" #frmTipoServicio="ngForm">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="nombreTipoServicio" required formControlName="nombreTipoServicio">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="descripcionTipoServicio" required formControlName="descripcionTipoServicio">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmTipoServicio.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink='/pages/tiposervicio' type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>

@@ -1,0 +1,82 @@
+<mat-toolbar>Registro de Citas</mat-toolbar>
+
+<div class="example-container">
+    <mat-form-field>
+        <mat-select placeholder="Selecciona Cliente" [(ngModel)]="idClienteSeleccionado">
+            <mat-option *ngFor="let c of (clientes$ | async)" [value]="c.idCliente">
+                {{c.nombreCliente}} {{c.apellidoCliente}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Selecciona Tecnico" [(ngModel)]="idTecnicoSeleccionado">
+            <mat-option *ngFor="let t of (tecnicos$ | async)" [value]="t.idTecnico">
+                {{t.nombreTecnico}} {{t.apellidoTecnico}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Selecciona Solicitud" [(ngModel)]="idSolicitudSeleccionado">
+            <mat-option *ngFor="let s of (solcitudes$ | async)" [value]="s.idSolicitud">
+                {{s.descripcionSolicitud}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Escoge una fecha</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="fechaSeleccionada">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Ubicacion" [(ngModel)]="analisis">
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput placeholder="Solucion" [(ngModel)]="solucion"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="agregar()">Agregar Detalles de la Cita</button>
+
+    <mat-expansion-panel *ngFor="let d of detalleCita; let i=index">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{i + 1}} {{d.analisis}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Ver Funcion
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+            <textarea matInput placeholder="Funcion" value="{{d.solucion}}"></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button color="warn" (click)="removerDiagnostico(i)" >Remover</button>
+    </mat-expansion-panel>
+
+    <mat-form-field>
+        <mat-select placeholder="Selecciona TipoServicio" [(ngModel)]="idTipoServicioSeleccionado">
+            <mat-option *ngFor="let t of (tiposervicios$ | async)" [value]="t.idTipoServicio">
+                {{t.nombreTipoServicio}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="agregarTipoServicio()">Agregar Tipo de Servicio</button>
+
+    <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let ex of tiposerviciosSeleccionados; let i = index">
+           {{i + 1}} ) {{ex.nombreTipoServicio}}
+            <button mat-raised-button color="warn" (click)="removerExamen(i)">Remover</button>
+        </mat-list-item>
+    </mat-list>
+
+    <button mat-raised-button color="primary" (click)="aceptar()">Registrar</button>
+
+</div>
